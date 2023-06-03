@@ -1,0 +1,31 @@
+{% include "authenticate/header.html" %}
+    
+    <div class="header-text">
+        <h1>Welcome to Home Page !</h1>
+        {% for message in messages %}
+            <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                <strong>Message:</strong> {{message}}
+            <button type="button" class="close" data-dismiss="alert" area-lable="Close">
+                <span area-hidden="true">&times;</span>
+            </button>
+            </div>
+        {% endfor %}
+        {% if user.is_authenticated %} 
+        <div class="before-signin">
+            <h3 style=" font-size: 30px;"> Hello {{name}} !</h3>
+            <h2>You are Successfully logged in !</h2>
+            <span style="margin-left: 100px;"><button type="submit"><a href="/signout" class="button-6"> SignOut</a></button></span>
+        
+        {% else %} 
+            <span style="margin-left: 80px;">
+            <button type="submit" class="button-6"><a href="/signup">SignUp</a></button>
+            <button type="submit" class="button-6"><a href="/signin"> SignIn</a></button>
+            </span>
+        </div>
+        {% endif %}
+   </div>
+</div>
+</div>
+</body>
+</html>
+    
